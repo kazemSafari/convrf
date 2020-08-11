@@ -1,6 +1,6 @@
 # convrf
 
-Implementation of Receptive Field convolutional layer in pytorch. This idea was originally presented in "Structured Receptive Fields" (https://arxiv.org/abs/1605.02971) paper. To run the code:
+Implementation of Receptive Field convolutional layer in pytorch. This idea was originally presented in [Structured Receptive Fields](https://arxiv.org/abs/1605.02971) paper. To run the code:
  
 1. download and install using pip install -e convrf
 2. Take a look at example.py for an example of convrf convolutional layer usage.
