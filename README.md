@@ -1,9 +1,11 @@
 # convrf
 
-Implementation of Directional Receptive Field convolutional layer in pytorch. This idea is taken from "Structured Receptive Fields" (https://arxiv.org/abs/1605.02971) paper. To run the code:
-
-
-0. add your own 3x3, 5x5, and 7x7 filterbanks to directional_filterbanks/2d/ folder. They should be named following the convention "3x3.npy", "5x5.npy", and "7x7.npy"
+Implementation of Receptive Field convolutional layer in pytorch. This idea was originally presented in "Structured Receptive Fields" (https://arxiv.org/abs/1605.02971) paper. To run the code:
+ 
 1. download and install using pip install -e convrf
 2. Take a look at example.py for an example of convrf convolutional layer usage.
-3. play around with KERNELS_RATIO parameter to see what value fits best to your application. KERNELS_RATIO = 1 uses all the filters in the family.
+3. Choose the fitlerbank: "nn_bank" or "frame" or "pframe". It is not recommended to use "nn_bank" as it almost always produces inferior results.
+4. play around with "kernel_drop_rate" parameter to see what value fits best to your application. kernel_drop_rate = 0 uses all the filters in the family.
+5. You can play around with "gain" parameter which enlarges or shrinks the support of the weight coefficients initialization kaiming uniform distribution if you feel like it, not it is not necessary.
+
+In case you it in your research please cite these three papers: "Structured Receptive Fields" (https://arxiv.org/abs/1605.02971), On the design of multi-dimensional compactly supported parseval framelets with directional characteristics (https://www.sciencedirect.com/science/article/abs/pii/S0024379519303155), and the main paper which I will share the link shortly.
