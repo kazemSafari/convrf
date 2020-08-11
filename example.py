@@ -6,14 +6,14 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
-from convrf.convrf import Conv2dRF, Conv2dRF_v1
+from convrf.convrf import Conv2dRF
 
 
 class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
         # self.conv1 = nn.Conv2d(1, 32, 3, padding=1)
-        self.conv1 = Conv2dRF_v1(1, 32, 3, padding=1, kernel_drop_rate=.6)
+        self.conv1 = Conv2dRF(1, 32, 3, padding=1, fbank_type="frame", kernel_drop_rate=.6)
         self.conv2 = nn.Conv2d(32, 64, 3, padding=1)
         self.dropout1 = nn.Dropout2d(0.25)
         self.dropout2 = nn.Dropout2d(0.5)
