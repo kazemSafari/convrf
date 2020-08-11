@@ -278,37 +278,3 @@ class Conv2dRF(_ConvNdRF):
         else:
             kernel_span = torch.einsum("ijk, ijklm -> ijlm", weight, kernels.detach())
         return kernel_span
-
-
-class Conv3dRF(_ConvNdRF):
-    def __init__(self, in_channels, out_channels, kernel_size, stride=1,
-                 padding=0, dilation=1, groups=1,
-                 bias=True, padding_mode='zeros', kernel_drop_rate=0, fbank_type="frame", gain=1):
-        kernel_size = _triple(kernel_size)
-        stride = _triple(stride)
-        padding = _triple(padding)
-        dilation = _triple(dilation)
-
-        if 1 in kernel_size:
-            raise ValueError("All kernel dimension values must be greater than 1.")
-
-        super(Conv3dRF, self).__init__(
-            in_channels, out_channels, kernel_size, stride, padding, dilation,
-            False, _triple(0), groups, bias, padding_mode, kernel_drop_rate, fbank_type, gain)
-
-    def _conv_forward(self, input, weight):
-        if self.kernel_drop_rate == 0:
-            kernel_span = torch.einsum("ijk, klmn -> ijlmn", weight, self.kernels.detach())
-        else:
-            kernel_span = torch.einsum("ijk, ijklmn -> ijlmn", weight, self.kernels.detach())
-
-        if self.padding_mode != 'zeros':
-            return F.conv3d(F.pad(input, self._padding_repeated_twice, mode=self.padding_mode),
-                            kernel_span, self.bias, self.stride,
-                            _triple(0),
-                            self.dilation, self.groups)
-        return F.conv3d(input, kernel_span, self.bias, self.stride,
-                        self.padding, self.dilation, self.groups)
-
-    def forward(self, input):
-        return self._conv_forward(input, self.weight)
