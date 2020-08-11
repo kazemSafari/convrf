@@ -8,4 +8,4 @@ Implementation of Receptive Field convolutional layer in pytorch. This idea was 
 4. play around with "kernel_drop_rate" parameter to see what value fits best to your application. kernel_drop_rate = 0 uses all the filters in the family.
 5. You can play around with "gain" parameter which enlarges or shrinks the support of the weight coefficients initialization kaiming uniform distribution if you feel like it, not it is not necessary.
 
-In case you it in your research please cite these three papers: "Structured Receptive Fields" (https://arxiv.org/abs/1605.02971), On the design of multi-dimensional compactly supported parseval framelets with directional characteristics (https://www.sciencedirect.com/science/article/abs/pii/S0024379519303155), and the main paper which I will share the link shortly.
+In case you it in your research please cite these three papers: [Structured Receptive Fields](https://arxiv.org/abs/1605.02971), [On the design of multi-dimensional compactly supported parseval framelets with directional characteristics](https://www.sciencedirect.com/science/article/abs/pii/S0024379519303155), and the main paper which I will share the link shortly.
