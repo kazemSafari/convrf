@@ -11,6 +11,7 @@ Implementation of Receptive Field convolutional layer in pytorch. This idea was 
 In case you use this project in your research please cite these two respositories in your code:
 
 kazemSafari/convrf
+
 nkarantzas/dynamic
 
 and cite these three papers as well: [Structured Receptive Fields](https://arxiv.org/abs/1605.02971), [On the design of multi-dimensional compactly supported parseval framelets with directional characteristics](https://www.sciencedirect.com/science/article/abs/pii/S0024379519303155), and the main paper which I will share the link shortly. 
