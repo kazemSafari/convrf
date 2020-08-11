@@ -5,6 +5,9 @@ from scipy.optimize import Bounds
 from scipy.optimize import NonlinearConstraint
 from scipy.signal.windows import gaussian
 
+"""This script is borrowed from Nikolaos Karantzas's dynamic repository with his permission. He is the main author of the paper 
+[On the design of multi-dimensional compactly supported parseval framelets with directional characteristics](https://www.sciencedirect.com/science/article/abs/pii/S0024379519303155).
+Please also cite nkarantzas/dynamic ."""
 
 class Parseval:
     """
